@@ -9,7 +9,7 @@ import { useToast } from './ui/use-toast';
 import { useMutation } from "convex/react";
 import { Button } from './ui/button';
 import LoaderSpinner from './LoaderSpinner';
-import { useAudio } from '@/providers/audioProvider';
+import { useAudio } from '@/providers/AudioProvider';
 
 const PodcastDetailPlayer = ({
     audioUrl,

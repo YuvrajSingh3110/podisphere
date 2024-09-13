@@ -8,7 +8,7 @@ import { usePathname, useRouter } from '@/node_modules/next/navigation'
 import React from 'react'
 import { SignedIn, SignedOut, useClerk } from '@clerk/nextjs'
 import { Button } from './ui/button';
-import { useAudio } from '@/providers/audioProvider';
+import { useAudio } from '@/providers/AudioProvider';
 
 const LeftSidebar = () => {
     const pathname = usePathname();

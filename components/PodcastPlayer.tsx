@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { useAudio } from '@/providers/audioProvider'
+import { useAudio } from '@/providers/AudioProvider'
 import React, { useEffect, useRef, useState } from 'react'
 import { Progress } from "@/components/ui/progress"
 import Link from '@/node_modules/next/link'
