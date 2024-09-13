@@ -1,7 +1,6 @@
 "use client";
 
 import PodcastCard from '@/components/PodcastCard'
-import { podcastData } from '@/constants/index'
 import React from 'react'
 
 import { useQuery } from "convex/react";
@@ -12,7 +11,6 @@ const Home = () => {
 
   return (
     <div className='mt-9 flex flex-col gap-9 md:overflow-hidden'>
-      {/* {tasks?.map(({ _id, text }) => <div className='text-white-1' key={_id}>{text}</div>)} */}
       <section className='flex flex-col gap-5'>
         <h1 className="text-20 font-bold text-white-1">Trending Podcasts</h1>
 

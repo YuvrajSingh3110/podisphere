@@ -6,13 +6,20 @@ import Image from '@/node_modules/next/image'
 import Link from '@/node_modules/next/link'
 import { usePathname, useRouter } from '@/node_modules/next/navigation'
 import React from 'react'
+import { SignedIn, SignedOut, useClerk } from '@clerk/nextjs'
+import { Button } from './ui/button';
+import { useAudio } from '@/providers/audioProvider';
 
 const LeftSidebar = () => {
     const pathname = usePathname();
     const router = useRouter();
+    const { signOut } = useClerk();
+    const { audio } = useAudio();
 
     return (
-        <section className='left_sidebar'>
+        <section className={cn('left_sidebar h-[calc(100vh-5px)]', {
+            'h-[calc(100vh-116px)]': audio?.audioUrl
+        })}>
             <nav className='flex flex-col gap-6'>
                 <Link href="/" className="flex cursor-pointer items-center gap-1 pb-10 max-lg:justify-center">
                     <Image src="/icons/logo.svg" alt="logo" width={23} height={27} />
@@ -29,6 +36,22 @@ const LeftSidebar = () => {
                 })
                 }
             </nav>
+            <SignedOut>
+                <div className='flex-center w-full pb-14 max-lg:px-4 lg:pr-8'>
+                    <Button asChild className='text-16 font-extrabold w-full bg-orange-1'>
+                        <Link href={"/sign-in"}>
+                            Sign in
+                        </Link>
+                    </Button>
+                </div>
+            </SignedOut>
+            <SignedIn>
+                <div className='flex-center w-full pb-14 max-lg:px-4 lg:pr-8'>
+                    <Button className='text-16 font-extrabold w-full bg-orange-1' onClick={() => signOut(() => router.push('/'))}>
+                        Sign out
+                    </Button>
+                </div>
+            </SignedIn>
         </section>
     )
 }
